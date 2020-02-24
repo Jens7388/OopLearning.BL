@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace OopLearning.BL
@@ -74,22 +75,31 @@ namespace OopLearning.BL
             }
             else
             {
-                return (true, "");
+                return (true, String.Empty);
             }
         }
         public static (bool, string) ValidateCpr(string cpr)
         {
-            if(cpr is null)
-            {
-                return (false, "CPR er null!");
-            }
             if(cpr.Length != 10)
             {
                 return (false, "CPR må kun være på 10 cifre!");
             }
             else
             {
-                return (true, "");
+                string date = cpr.Substring(0, 6);
+                DateTime birthDate;
+                if(!DateTime.TryParseExact(date, "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out birthDate))
+                {
+                    return (false, "Datoen i cpr-nummeret er ugyldigt!");
+                }
+                if(birthDate > DateTime.Now)
+                {
+                    return (false, "Datoen i cpr-nummeret ligger i fremtiden!");
+                }
+                else
+                {
+                    return (true, String.Empty);
+                }
             }
         }
     }
