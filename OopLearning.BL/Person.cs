@@ -4,7 +4,8 @@ using System.Text;
 
 namespace OopLearning.BL
 {
-    class Person
+    public class Person
     {
+
     }
 }
