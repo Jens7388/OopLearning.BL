@@ -22,14 +22,16 @@ namespace OopLearning.BL
             else if(nameValidationResult.isValid && cprValidationResult.isValid)
             {
                 DateTime.TryParseExact(cprInput.Substring(0, 6), "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime birthDate);
-                int.TryParse(cprInput.Substring(7, 10), out int cprGender);
+                int.TryParse(cprInput.Substring(0, 10), out int cprGender);
                 if(cprGender % 2 == 0)
                 {
                     Person person = new Person(nameInput, birthDate, cprInput, true);
+                    Console.WriteLine(nameInput, birthDate, cprInput, "Female");
                 }
                 else
                 {
                     Person person = new Person(nameInput, birthDate, cprInput, false);
+                    Console.WriteLine($"{nameInput}, {birthDate.ToString("dd-MM-yyyy")}, {cprInput}, Male");
                 }
                 
             }
