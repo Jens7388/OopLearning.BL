@@ -8,9 +8,7 @@ namespace OopLearning.BL
     public class Person
     {
         private string name;
-        private DateTime birthDate;
         private string cpr;
-        private bool isWoman;
 
         public Person(string name, DateTime birthDate, string cpr, bool isWoman)
         {
@@ -52,7 +50,7 @@ namespace OopLearning.BL
                 }
             }
         }
-        public bool IsWoman { get; set; }
+        public bool IsWoman { get;}
 
         public static (bool, string) ValidateName(string name)
         {

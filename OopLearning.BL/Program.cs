@@ -8,20 +8,12 @@ namespace OopLearning.BL
         static void Main()
         {
             MakePerson("Ib ", "1203567890");
+            MakeAccount("1234567890", "6969", 69000);
         }
         private static void MakePerson(string nameInput, string cprInput)
-        {            
-            (bool isValid, string errorMessage) nameValidationResult = Person.ValidateName(nameInput);
-            (bool isValid, string errorMessage) cprValidationResult = Person.ValidateCpr(cprInput);
-            if(!nameValidationResult.isValid)
-            {
-                Console.WriteLine(nameValidationResult.errorMessage);
-            }
-            if(!cprValidationResult.isValid)
-            {
-                Console.WriteLine(cprValidationResult.errorMessage);
-            }
-            else if(nameValidationResult.isValid && cprValidationResult.isValid)
+        {
+
+            try
             {
                 DateTime.TryParseExact(cprInput.Substring(0, 6), "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime birthDate);
                 int.TryParse(cprInput.Substring(0, 10), out int cprGender);
@@ -35,6 +27,26 @@ namespace OopLearning.BL
                     Person person = new Person(nameInput, birthDate, cprInput, false);
                     Console.WriteLine($"{nameInput}, {birthDate.ToString("dd-MM-yyyy")}, {cprInput}, Male");
                 }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+                
+            
+        }
+        private static void MakeAccount(string accountNumberInput, string departmentNumberInput, decimal balanceInput)
+        {
+            try
+            {
+                Account account = new Account(accountNumberInput, departmentNumberInput, balanceInput);
+                Console.WriteLine($"{accountNumberInput}, {departmentNumberInput}, {balanceInput}");
+            }
+            catch(Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+                Console.ReadLine();
             }
         }
     }
