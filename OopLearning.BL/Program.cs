@@ -54,19 +54,19 @@ namespace OopLearning.BL
                 double yield = 0;
                 if(cropInput.ToLower() == "potatoes")
                 {
-                    yield = 4000 / area;
+                    yield = 20 * area;
                 }
                 else if(cropInput.ToLower() == "wheat")
                 {
-                    yield = 2000 / area;
+                    yield = 10 * area;
                 }
                 else if(cropInput.ToLower() == "oak")
                 {
-                    yield = 3000 / area;
+                    yield = 15 * area;
                 }
                 else if(cropInput.ToLower() == "carrots")
                 {
-                    yield = 6666 / area;
+                    yield = 66.66 * area;
                 }
                 Field field = new Field(widthInput, lengthInput, area, cropInput, yield);
                 Console.WriteLine($"Width: {widthInput} cm, length: {lengthInput} cm, area: {area} m2, crop: {cropInput}, yield: {yield} kg");
