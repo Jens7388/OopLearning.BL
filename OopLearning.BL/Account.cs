@@ -52,10 +52,9 @@ namespace OopLearning.BL
             get { return balance; }
             set 
             {
-                (bool isValid, string errorMessage) validationResult = ValidateBalance(value);
-                if(!validationResult.isValid)
+                if(value < 0)
                 {
-                    throw new ArgumentException(nameof(balance), validationResult.errorMessage);
+                    throw new ArgumentOutOfRangeException(nameof(balance), "Balance må ikke være i minus!");
                 }
                 if(value != balance)
                 {
@@ -91,17 +90,6 @@ namespace OopLearning.BL
             if(departmentNumber.Substring(0, 1) != "0")
             {
                 return (false, "DepartmentNumber skal starte med et 0!");
-            }
-            else
-            {
-                return (true, String.Empty);
-            }
-        }
-        public static (bool, string) ValidateBalance(decimal balance)
-        {
-            if(balance < 0)
-            {
-                return (false, "Balance må ikke være i minus!");
             }
             else
             {

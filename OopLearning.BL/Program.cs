@@ -8,11 +8,10 @@ namespace OopLearning.BL
         static void Main()
         {
             MakePerson("Ib ", "1203567890");
-            MakeAccount("1234567890", "6969", 69000);
+            MakeAccount("1234567890", "0420", 69000);
         }
         private static void MakePerson(string nameInput, string cprInput)
         {
-
             try
             {
                 DateTime.TryParseExact(cprInput.Substring(0, 6), "ddMMyy", CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime birthDate);
@@ -31,9 +30,7 @@ namespace OopLearning.BL
             catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
-            }
-                
-            
+            }           
         }
         private static void MakeAccount(string accountNumberInput, string departmentNumberInput, decimal balanceInput)
         {
