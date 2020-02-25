@@ -9,6 +9,7 @@ namespace OopLearning.BL
     {
         private string name;
         private string cpr;
+
         public Person(string name, DateTime birthDate, string cpr, bool isWoman)
         {
             Name = name;
@@ -16,6 +17,7 @@ namespace OopLearning.BL
             Cpr = cpr;
             IsWoman = isWoman;
         }
+
         public string Name
         {
             get { return name; }
@@ -32,7 +34,9 @@ namespace OopLearning.BL
                 }
             }
         }
+
         public DateTime BirthDate { get; }
+
         public string Cpr
         {
             get { return cpr; }
@@ -49,7 +53,9 @@ namespace OopLearning.BL
                 }
             }
         }
+
         public bool IsWoman { get;}
+
         public static (bool, string) ValidateName(string name)
         {
             if(name is null)
@@ -74,6 +80,7 @@ namespace OopLearning.BL
                 return (true, String.Empty);
             }
         }
+
         public static (bool, string) ValidateCpr(string cpr)
         {
             if(cpr.Length != 10)

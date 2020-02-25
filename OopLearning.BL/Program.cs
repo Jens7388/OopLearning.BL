@@ -9,7 +9,7 @@ namespace OopLearning.BL
         {
             MakePerson("Ib ", "1203567891");
             MakeAccount("1234567890", "0420", 69000);
-            MakeField(69, 420, "Potatoes");
+            MakeField(6, 5, "Potatoes");
             Console.ReadLine();
         }
         private static void MakePerson(string nameInput, string cprInput)

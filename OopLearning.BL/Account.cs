@@ -9,12 +9,14 @@ namespace OopLearning.BL
         private string accountNumber;
         private string departmentNumber;
         private decimal balance;
+
         public Account(string accountNumber, string departmentNumber, decimal balance)
         {
             AccountNumber = accountNumber;
             DepartmentNumber = departmentNumber;
             Balance = balance;
         }
+
         public string AccountNumber
         {
             get { return accountNumber; }
@@ -31,6 +33,7 @@ namespace OopLearning.BL
                 }
             }
         }
+
         public string DepartmentNumber
         {
             get { return departmentNumber; }
@@ -47,6 +50,7 @@ namespace OopLearning.BL
                 }
             }
         }
+
         public decimal Balance
         {
             get { return balance; }
@@ -62,6 +66,7 @@ namespace OopLearning.BL
                 }
             }
         }
+
         public static (bool, string) ValidateAccountNumber(string accountNumber)
         {
             if(accountNumber is null)
@@ -77,6 +82,7 @@ namespace OopLearning.BL
                 return (true, String.Empty);
             }
         }
+
         public static (bool, string) ValidateDepartmentNumber(string departmentNumber)
         {
             if(departmentNumber is null)
