@@ -7,8 +7,10 @@ namespace OopLearning.BL
     {
         static void Main()
         {
-            string nameInput = "Ib ";
-            string cprInput = "1203567891";
+            MakePerson("Ib ", "1203567890");
+        }
+        private static void MakePerson(string nameInput, string cprInput)
+        {            
             (bool isValid, string errorMessage) nameValidationResult = Person.ValidateName(nameInput);
             (bool isValid, string errorMessage) cprValidationResult = Person.ValidateCpr(cprInput);
             if(!nameValidationResult.isValid)
@@ -26,14 +28,13 @@ namespace OopLearning.BL
                 if(cprGender % 2 == 0)
                 {
                     Person person = new Person(nameInput, birthDate, cprInput, true);
-                    Console.WriteLine(nameInput, birthDate, cprInput, "Female");
+                    Console.WriteLine($"{nameInput}, {birthDate.ToString("dd-MM-yyyy")}, {cprInput}, Female");
                 }
                 else
                 {
                     Person person = new Person(nameInput, birthDate, cprInput, false);
                     Console.WriteLine($"{nameInput}, {birthDate.ToString("dd-MM-yyyy")}, {cprInput}, Male");
                 }
-                
             }
         }
     }

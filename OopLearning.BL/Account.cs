@@ -21,15 +21,14 @@ namespace OopLearning.BL
             set
             {
                 (bool isValid, string errorMessage) validationResult = ValidateAccountNumber(value);
-                    if(!validationResult.isValid)
-                    {
-                        throw new ArgumentException(nameof(accountNumber), validationResult.errorMessage);
-                    }
-                    if(value != accountNumber)
-                    {
-                        accountNumber = value;
-                    }
-                
+                if(!validationResult.isValid)
+                {
+                    throw new ArgumentException(nameof(accountNumber), validationResult.errorMessage);
+                }
+                if(value != accountNumber)
+                {
+                    accountNumber = value;
+                }
             }
         }
         public string DepartmentNumber
@@ -46,7 +45,22 @@ namespace OopLearning.BL
                 {
                     departmentNumber = value;
                 }
-                
+            }
+        }
+        public decimal Balance
+        {
+            get { return balance; }
+            set 
+            {
+                (bool isValid, string errorMessage) validationResult = ValidateBalance(value);
+                if(!validationResult.isValid)
+                {
+                    throw new ArgumentException(nameof(balance), validationResult.errorMessage);
+                }
+                if(value != balance)
+                {
+                    balance = value;
+                }
             }
         }
         public static (bool, string) ValidateAccountNumber(string accountNumber)
@@ -77,6 +91,17 @@ namespace OopLearning.BL
             if(departmentNumber.Substring(0, 1) != "0")
             {
                 return (false, "DepartmentNumber skal starte med et 0!");
+            }
+            else
+            {
+                return (true, String.Empty);
+            }
+        }
+        public static (bool, string) ValidateBalance(decimal balance)
+        {
+            if(balance < 0)
+            {
+                return (false, "Balance må ikke være i minus!");
             }
             else
             {
