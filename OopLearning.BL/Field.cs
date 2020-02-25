@@ -12,11 +12,13 @@ namespace OopLearning.BL
         private string crop;
         private double yield;
 
-        public Field(double width, double length, string crop, )
+        public Field(double width, double length, double area, string crop, double yield)
         {
             Width = width;
             Length = length;
+            Area = area;
             Crop = crop;
+            Yield = yield;
         }
 
         public double Width
@@ -49,10 +51,7 @@ namespace OopLearning.BL
                 }
             }
         }
-        public double Area
-        {
-            get { return area; }
-        }
+        public double Area {get;}
         public string Crop
         {
             get { return crop; }
@@ -69,10 +68,7 @@ namespace OopLearning.BL
                 }
             }
         }
-        public double Yield
-        {
-            get { return yield; }
-        }
+        public double Yield {get;}
         public static (bool, string) ValidateCrop(string crop)
         {
             if(crop is null)

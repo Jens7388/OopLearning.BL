@@ -9,6 +9,8 @@ namespace OopLearning.BL
         {
             MakePerson("Ib ", "1203567890");
             MakeAccount("1234567890", "0420", 69000);
+            MakeField(69, 420, "Potatoes");
+            Console.ReadLine();
         }
         private static void MakePerson(string nameInput, string cprInput)
         {
@@ -19,12 +21,12 @@ namespace OopLearning.BL
                 if(cprGender % 2 == 0)
                 {
                     Person person = new Person(nameInput, birthDate, cprInput, true);
-                    Console.WriteLine($"{nameInput}, {birthDate.ToString("dd-MM-yyyy")}, {cprInput}, Female");
+                    Console.WriteLine($"Name: {nameInput}, birth date: {birthDate.ToString("dd-MM-yyyy")}, CPR: {cprInput}, gender: Female");
                 }
                 else
                 {
                     Person person = new Person(nameInput, birthDate, cprInput, false);
-                    Console.WriteLine($"{nameInput}, {birthDate.ToString("dd-MM-yyyy")}, {cprInput}, Male");
+                    Console.WriteLine($"Name: {nameInput}, birth date: {birthDate.ToString("dd-MM-yyyy")}, CPR: {cprInput}, gender: Male");
                 }
             }
             catch(Exception ex)
@@ -37,14 +39,42 @@ namespace OopLearning.BL
             try
             {
                 Account account = new Account(accountNumberInput, departmentNumberInput, balanceInput);
-                Console.WriteLine($"{accountNumberInput}, {departmentNumberInput}, {balanceInput}");
+                Console.WriteLine($"Account number: {accountNumberInput}, department number: {departmentNumberInput}, balance: {balanceInput}");
             }
             catch(Exception ex)
             {
-
-                Console.WriteLine(ex.Message);
-                Console.ReadLine();
+                Console.WriteLine(ex.Message);              
             }
+        }
+        private static void MakeField(double widthInput, double lengthInput, string cropInput)
+        {
+            try
+            {
+                double area = (widthInput * lengthInput) / 1000;
+                double yield = 0;
+                if(cropInput.ToLower() == "potatoes")
+                {
+                    yield = 4000 / area;
+                }
+                else if(cropInput.ToLower() == "wheat")
+                {
+                    yield = 2000 / area;
+                }
+                else if(cropInput.ToLower() == "oak")
+                {
+                    yield = 3000 / area;
+                }
+                else if(cropInput.ToLower() == "carrots")
+                {
+                    yield = 6666 / area;
+                }
+                Field field = new Field(widthInput, lengthInput, area, cropInput, yield);
+                Console.WriteLine($"Width: {widthInput} cm, length: {lengthInput} cm, area: {area} m2, crop: {cropInput}, yield: {yield} kg");
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }           
         }
     }
 }
