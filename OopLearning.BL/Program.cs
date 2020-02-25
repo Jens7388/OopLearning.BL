@@ -7,7 +7,7 @@ namespace OopLearning.BL
     {
         static void Main()
         {
-            MakePerson("Ib ", "1203567890");
+            MakePerson("Ib ", "1203567891");
             MakeAccount("1234567890", "0420", 69000);
             MakeField(69, 420, "Potatoes");
             Console.ReadLine();
@@ -50,7 +50,7 @@ namespace OopLearning.BL
         {
             try
             {
-                double area = (widthInput * lengthInput) / 1000;
+                double area = (widthInput * lengthInput) / 10000;
                 double yield = 0;
                 if(cropInput.ToLower() == "potatoes")
                 {

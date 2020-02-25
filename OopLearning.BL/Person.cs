@@ -9,7 +9,6 @@ namespace OopLearning.BL
     {
         private string name;
         private string cpr;
-
         public Person(string name, DateTime birthDate, string cpr, bool isWoman)
         {
             Name = name;
@@ -51,7 +50,6 @@ namespace OopLearning.BL
             }
         }
         public bool IsWoman { get;}
-
         public static (bool, string) ValidateName(string name)
         {
             if(name is null)

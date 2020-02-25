@@ -8,10 +8,7 @@ namespace OopLearning.BL
     {
         private double width;
         private double length;
-        private double area;
         private string crop;
-        private double yield;
-
         public Field(double width, double length, double area, string crop, double yield)
         {
             Width = width;
@@ -20,7 +17,6 @@ namespace OopLearning.BL
             Crop = crop;
             Yield = yield;
         }
-
         public double Width
         {
             get { return width; }
